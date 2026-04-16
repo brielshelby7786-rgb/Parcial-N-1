@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Instalación Entidad</title>
+    <link rel="stylesheet" href="styles7.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-top">Entidades</div>
+    <div class="header-main">INSTALACION ENTIDAD</div>
+
+    <div class="form-box">
+
+        <div class="form-row">
+            <label>Entidad:</label>
+
+            <div class="custom-select">
+                <div class="selected">
+                    <span class="selected-text">0006 Vicepresidencia del Estado Plurinacional</span>
+                    <span class="arrow"></span>
+                </div>
+
+                <div class="options">
+                    <div class="option selected">0006 Vicepresidencia del Estado Plurinacional</div>
+                    <div class="option">0010 Ministerio de Relaciones Exteriores</div>
+                    <div class="option">0015 Ministerio de Gobierno</div>
+                    <div class="option">0016 Ministerio de Educación</div>
+                    <div class="option">0020 Ministerio de Defensa</div>
+                    <div class="option">0025 Ministerio de la Presidencia</div>
+                    <div class="option">0030 Ministerio de Justicia</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label>Sigla:</label>
+            <input type="text">
+        </div>
+
+        <div class="form-row">
+            <label>Institución:</label>
+            <input type="text">
+        </div>
+
+    </div>
+
+    <div class="buttons">
+        <button class="btn">OK</button>
+        <button class="btn">Salir</button>
+    </div>
+
+</div>
+
+<script>
+const select = document.querySelector(".custom-select");
+const selected = document.querySelector(".selected-text");
+const options = document.querySelectorAll(".option");
+
+document.querySelector(".selected").addEventListener("click", () => {
+    select.classList.toggle("open");
+});
+
+options.forEach(option => {
+    option.addEventListener("click", () => {
+        options.forEach(o => o.classList.remove("selected"));
+        option.classList.add("selected");
+        selected.textContent = option.textContent;
+        select.classList.remove("open");
+    });
+});
+
+document.addEventListener("click", (e) => {
+    if (!select.contains(e.target)) {
+        select.classList.remove("open");
+    }
+});
+</script>
+
+</body>
+</html>

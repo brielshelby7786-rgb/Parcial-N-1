@@ -1,0 +1,128 @@
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: #8fb3c1;
+}
+
+.container {
+    width: 520px;
+    margin: 60px auto;
+    background: #d4d0c8;
+    border: 2px solid #808080;
+    box-shadow: inset -2px -2px 0 #fff, inset 2px 2px 0 #808080;
+}
+
+.header-top {
+    background: #2b2b2b;
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 13px;
+}
+
+.header-main {
+    background: linear-gradient(to right, #0a4a7a, #3a84c1);
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+    border: 2px solid #404040;
+}
+
+.form-box {
+    margin: 20px;
+    padding: 15px;
+    border: 2px inset #808080;
+    background: #e8e8e8;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+label {
+    width: 100px;
+    font-size: 13px;
+    color: #00334d;
+}
+
+input {
+    flex: 1;
+    padding: 4px;
+    font-size: 13px;
+    border: 2px inset #808080;
+}
+
+.custom-select {
+    position: relative;
+    flex: 1;
+    font-size: 13px;
+}
+
+.selected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border: 2px inset #808080;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid black;
+    margin-left: 8px;
+}
+
+.options {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background: #d6ecff;
+    border: 2px solid #808080;
+    max-height: 140px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.custom-select.open .options {
+    display: block;
+}
+
+.option {
+    padding: 4px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #a8d4ff;
+}
+
+.option.selected {
+    background: #5aa9e6;
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+}
+
+.btn {
+    width: 90px;
+    background: linear-gradient(to bottom, #3a84c1, #0a4a7a);
+    color: #fff;
+    border: 2px outset #fff;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.btn:active {
+    border: 2px inset #404040;
+}
