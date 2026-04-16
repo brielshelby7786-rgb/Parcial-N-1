@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Interfaces</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- PRIMER DISEÑO -->
+    <div class="container">
+
+        <div class="header-top">SISTEMA DE ACTIVOS FIJOS</div>
+        <div class="sub-header">Unidad Administrativa</div>
+        <div class="header-main">ADMINISTRACION UNIDAD ADMINISTRATIVA</div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>UNIDAD</th>
+                        <th>DESCRIPCION</th>
+                        <th>CIUDAD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="selected">
+                        <td>025</td>
+                        <td>GACETA OFICIAL DE BOLIVIA</td>
+                        <td>LA PAZ</td>
+                    </tr>
+                    <tr><td>&nbsp;</td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="buttons">
+            <button class="btn">Nuevo</button>
+            <button class="btn">Editar</button>
+            <button class="btn">Eliminar</button>
+            <button class="btn">Seleccionar</button>
+            <button class="btn">Salir</button>
+        </div>
+
+    </div>
+
+    <!-- SEGUNDO DISEÑO -->
+    <div class="container">
+
+        <div class="header-top">Entidades</div>
+        <div class="header-main">INSTALACION ENTIDAD</div>
+
+        <div class="form-box">
+
+            <div class="form-row">
+                <label>Entidad:</label>
+
+                <div class="custom-select">
+                    <div class="selected-select">
+                        <span class="selected-text">0006 Vicepresidencia del Estado Plurinacional</span>
+                        <span class="arrow"></span>
+                    </div>
+
+                    <div class="options">
+                        <div class="option selected">0006 Vicepresidencia del Estado Plurinacional</div>
+                        <div class="option">0010 Ministerio de Relaciones Exteriores</div>
+                        <div class="option">0015 Ministerio de Gobierno</div>
+                        <div class="option">0016 Ministerio de Educación</div>
+                        <div class="option">0020 Ministerio de Defensa</div>
+                        <div class="option">0025 Ministerio de la Presidencia</div>
+                        <div class="option">0030 Ministerio de Justicia</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label>Sigla:</label>
+                <input type="text">
+            </div>
+
+            <div class="form-row">
+                <label>Institución:</label>
+                <input type="text">
+            </div>
+
+        </div>
+
+        <div class="buttons">
+            <button class="btn">OK</button>
+            <button class="btn">Salir</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const rows = document.querySelectorAll("tbody tr");
+rows.forEach(row => {
+    row.addEventListener("click", () => {
+        rows.forEach(r => r.classList.remove("selected"));
+        row.classList.add("selected");
+    });
+});
+
+const select = document.querySelector(".custom-select");
+const selected = document.querySelector(".selected-text");
+const options = document.querySelectorAll(".option");
+
+document.querySelector(".selected-select").addEventListener("click", () => {
+    select.classList.toggle("open");
+});
+
+options.forEach(option => {
+    option.addEventListener("click", () => {
+        options.forEach(o => o.classList.remove("selected"));
+        option.classList.add("selected");
+        selected.textContent = option.textContent;
+        select.classList.remove("open");
+    });
+});
+
+document.addEventListener("click", (e) => {
+    if (!select.contains(e.target)) {
+        select.classList.remove("open");
+    }
+});
+</script>
+
+</body>
+</html>
